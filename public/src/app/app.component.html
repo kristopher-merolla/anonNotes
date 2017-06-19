@@ -1,0 +1,20 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Anonymous notes</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form">
+            <app-form (aTaskEventEmitter)="addNote($event)"></app-form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 list">
+            <app-wall (aTaskEventEmitter)="getNotes()" [notes]='notes'></app-wall>
+        </div>
+    </div>
+</div>

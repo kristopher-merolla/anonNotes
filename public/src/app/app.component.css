@@ -1,0 +1,11 @@
+.form{
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.list{
+    padding: 20px;
+    border: 1px solid black;
+    height: 350px;
+    overflow: scroll;
+}

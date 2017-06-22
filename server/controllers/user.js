@@ -35,7 +35,7 @@ module.exports = {
     show: function(req, res) {
         console.log("body name:",req.body.name); // look in server
         User.findOne({name: req.body.name}) // name 
-        .then((friend)=>{ // SOMETHING WRONG HERE!!!!!!!!!!!!!!!!!!
+        .then((friend)=>{
             console.log("hit the THEN");
             res.json({message: "Success", user: friend})
         })

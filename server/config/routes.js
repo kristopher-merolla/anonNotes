@@ -1,17 +1,22 @@
 var user = require('../controllers/user.js');
 var comment = require('../controllers/comment.js');
-var post = require('../controllers/post.js');
 var topic = require('../controllers/topic.js');
 const path = require('path');
 
 module.exports = function (app) {
-    app.get('/dashboard', function(req,res) {
-        topic.index(req,res);
-    });
+    // app.get('/dashboard', function(req,res) {
+    //     topic.index(req,res);
+    // });
+
+    app.get('/topics', topic.index);
 
     app.post('/userlogin', user.show);
 
     app.post('/usercreate', user.create);
+
+    app.post('/getUserId', user.show);
+
+    app.post('/newTopic', topic.create);
 
     // app.get('/topic/:id')
 

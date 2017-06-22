@@ -3,7 +3,7 @@ var Topic = mongoose.model('Topics');
 
 module.exports = (function() {
 	return {
-        index: function(req,res){
+        index: function(req,res){ // pull ALL topics
             Topic.find({}, function(err, data){
                 if(err){
                     res.json({message:"Error", error: err})
@@ -17,9 +17,11 @@ module.exports = (function() {
         create: function(req, res) {
             Topic.create(req.body, function(err, output){
                 if (err) {
+                    console.log("new topic NOT added ERR");
                     res.json({message: "Error", error: err})
                 }
                 else {
+                    console.log("new topic added ELSE");
                     res.json({message:"Success", topic: output})
                 }
             })

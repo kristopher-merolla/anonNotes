@@ -2,7 +2,10 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var path = require('path');
 
-mongoose.connect('mongodb://localhost/blueNote');
+// // put in global promise
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost/beltExamPrep'); // database
 
 var models_path = path.join(__dirname,'./../models');
 

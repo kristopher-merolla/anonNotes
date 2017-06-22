@@ -1,36 +1,16 @@
- // 
-// REQUIRES
-//
-var express = require('Express');
-var path = require('path');
-var app = express();
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('./server/config/mongoose.js');
 
-// 
-// SET 
-//
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './public/dist')));
-//app.set('views', path.join(__dirname, './client/views'));
 
-// 
-// MONGOOSE CONNECTION
-require('./server/config/mongoose.js');
-
-// SCHEMAS AND MODEL
-// in /server/models/whatever.js
+// ROUTES
+var routes = require('./server/config/routes.js')(app);
 
 
-// 
-// ROUTES 
-//
-var routes_setter = require('./server/config/routes.js');
-routes_setter(app);
-
-
-// 
-// RUN SERVER
-//
 app.listen(8000, function () {
     console.log('listening on port 8000');
 })

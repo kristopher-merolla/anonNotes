@@ -1,0 +1,45 @@
+<div id="big_wrapper">
+  <h3>
+    Dashboard Component
+  </h3>
+
+  <h5>Welcome {{activeUser}}</h5>
+
+  <div *ngIf="topics">
+    Check out the topics: {{ topics | json}}
+  </div>
+
+  <div *ngIf="errors">
+    Look, errors: {{ errors }}
+  </div>
+
+  <br>
+
+  <div id="newTopicSpace">
+      <!--simple form with validations:-->
+    <form #topicForm='ngForm' (submit)="addTopic(topicForm)">
+      <label for="topic">Topic:</label>
+      <input type="text" name="name" required minlength="5" [(ngModel)]="topic.name" #name="ngModel">
+      <br>
+      <label for="description">Description:</label>
+      <input type="text" name="description" required [(ngModel)]="topic.description" #description="ngModel">
+      <br>
+      <label for="category">Category:</label>
+      <select name="category" required [(ngModel)]="topic.category" #category="ngModel">
+        <option value="html">HTML</option>
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+        <option value="typescript">TypeScript</option>
+      </select>
+      <br>
+      <button type="submit" [disabled]="!topicForm.valid">Submit</button>
+    </form>
+
+    <div *ngIf="!name.valid && (name.touched || topicForm.submitted)">
+        <p class="red">Topic required, min 5 char</p>
+    </div>
+
+  </div>
+
+</div>

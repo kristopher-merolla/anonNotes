@@ -1,0 +1,15 @@
+#big_wrapper {
+    border: 2px solid red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.red {
+    color: red;
+}
+
+#newTopicSpace {
+    border: 1px dotted black;
+    padding: 2px;
+    width: 200px;
+}
